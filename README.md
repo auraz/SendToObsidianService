@@ -16,7 +16,7 @@ Capture selected text to Obsidian inbox via macOS Services menu or Share Sheet.
 ```bash
 mkdir -p ~/bin && cat > ~/bin/send-to-obsidian.sh << 'EOF'
 #!/bin/bash
-INBOX_FILE="$HOME/repos/ExpressionVault/Inbox/Inbox.md"
+INBOX_FILE="$HOME/repos/PATH_TO_YOUR_VAULT/Inbox/Inbox.md"
 
 TEXT="${1:-$(cat)}"
 [ -z "$TEXT" ] && exit 0
