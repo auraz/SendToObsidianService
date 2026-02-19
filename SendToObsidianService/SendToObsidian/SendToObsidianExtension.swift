@@ -33,6 +33,6 @@ class SendToObsidianExtension: NSObject {
     }
 
     private func showError(_ message: String) {
-        print("\(Config.serviceName): \(message)")
+        NotificationHelper.showError(message, serviceName: Config.serviceName)
     }
 }

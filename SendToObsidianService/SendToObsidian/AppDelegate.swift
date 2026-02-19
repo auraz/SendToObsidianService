@@ -9,5 +9,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.setActivationPolicy(.accessory)
         NSApp.servicesProvider = serviceProvider
         NSUpdateDynamicServices()
+        NotificationHelper.requestPermission()
     }
 }

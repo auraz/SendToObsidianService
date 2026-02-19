@@ -48,6 +48,11 @@ enum Config {
 3. Detects source app name and URL from pasteboard
 4. EntryFormatter creates markdown entry with timestamp and metadata
 5. InboxWriter appends entry to inbox file
+6. On error, NotificationHelper displays user-facing notification
+
+### Error Notifications
+
+Uses UNUserNotificationCenter to display errors to users. Permission is requested on app launch. Errors appear as system notifications with the service name as title.
 
 ### EntryFormatter
 
