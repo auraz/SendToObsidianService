@@ -30,3 +30,11 @@ The app runs as an accessory (LSUIElement=YES) with no dock icon or menu bar pre
 ### Services Integration
 
 The app registers as a macOS Services provider, appearing in right-click context menus under "Services > Send to Obsidian" when text is selected. The service accepts NSStringPboardType and processes text via SendToObsidianExtension.
+
+### EntryFormatter
+
+Formats captured text into markdown entries with timestamp, source app, and optional URL:
+```
+- 2026-02-19 14:30 | Safari | https://example.com
+  Selected text here
+```
