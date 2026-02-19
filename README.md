@@ -26,3 +26,7 @@ xcodebuild -project SendToObsidian.xcodeproj -scheme SendToObsidian build
 ## Architecture
 
 The app runs as an accessory (LSUIElement=YES) with no dock icon or menu bar presence. It exists solely to host the macOS Services extension.
+
+### Services Integration
+
+The app registers as a macOS Services provider, appearing in right-click context menus under "Services > Send to Obsidian" when text is selected. The service accepts NSStringPboardType and processes text via SendToObsidianExtension.
