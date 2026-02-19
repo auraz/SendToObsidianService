@@ -1,0 +1,42 @@
+name: SendToObsidian
+options:
+  bundleIdPrefix: com.obsidian.service
+  deploymentTarget:
+    macOS: "15.0"
+  xcodeVersion: "16.0"
+  minimumXcodeGenVersion: "2.40"
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "15.0"
+
+targets:
+  SendToObsidian:
+    type: application
+    platform: macOS
+    sources:
+      - SendToObsidian
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.obsidian.service.SendToObsidian
+        INFOPLIST_FILE: SendToObsidian/Info.plist
+        GENERATE_INFOPLIST_FILE: false
+        CODE_SIGN_STYLE: Automatic
+        PRODUCT_NAME: SendToObsidian
+    scheme:
+      testTargets:
+        - SendToObsidianTests
+
+  SendToObsidianTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: SendToObsidianTests
+        optional: true
+    dependencies:
+      - target: SendToObsidian
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.obsidian.service.SendToObsidianTests
+        GENERATE_INFOPLIST_FILE: true
