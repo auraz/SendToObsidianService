@@ -16,12 +16,20 @@ class SendToObsidianExtension: NSObject {
         guard let text = pboard.string(forType: .string), !text.isEmpty else { return }
         let appName = detectSourceApp()
         let url = detectURL(from: pboard)
-        let entry = formatter.format(text: text, appName: appName, url: url)
+        var entry = formatter.format(text: text, appName: appName, url: url)
+        if let summary = attemptAISummary(for: text) {
+            entry += "\n  > AI Summary: \(summary)\n"
+        }
         do {
             try writer.append(entry)
         } catch {
             showError("Failed to save - check inbox path")
         }
+    }
+
+    /// Placeholder for future Writing Tools (Apple Intelligence) integration.
+    private func attemptAISummary(for text: String) -> String? {
+        nil // Writing Tools API requires UI interaction on macOS 15, return nil to skip silently
     }
 
     private func detectSourceApp() -> String {
